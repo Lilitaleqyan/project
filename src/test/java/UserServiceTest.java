@@ -43,7 +43,7 @@ public class UserServiceTest {
 
             User user = userService.getAllUsers().get(0);
 
-            if (!testName.equals(user.getName())
+            if (!testName.equals(user.getFirstName())
                     || !testLastName.equals(user.getLastName())
                     || testAge != user.getAge()
             ) {
@@ -91,7 +91,8 @@ public class UserServiceTest {
             userService.saveUser(testName, testLastName, testAge);
             userService.cleanUsersTable();
 
-            if (userService.getAllUsers().size() != 0) {
+
+            if (!userService.getAllUsers().isEmpty()) {
                 Assert.fail("Метод очищения таблицы пользователей реализован не корректно");
             }
         } catch (Exception e) {
