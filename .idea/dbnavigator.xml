@@ -55,6 +55,14 @@
     <connection id="ad1ad1d2-af45-4930-9c56-08baeddf5b0a" />
     <connection id="8fccca31-7e9e-4865-b9b6-32b823834d5d" />
   </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="ad1ad1d2-af45-4930-9c56-08baeddf5b0a" dataset="public.users" active-filter-id="EMPTY_FILTER">
+      <filter id="fb077579-e678-489b-a14c-034bbe696c94" name="anush" temporary="false" custom-name="true" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="ad1ad1d2-af45-4930-9c56-08baeddf5b0a" dataset="public.Students" active-filter-id="" />
+  </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
   </component>

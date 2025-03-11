@@ -7,21 +7,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao {
-    private final String url = "jdbc:postgresql://localhost:5432/postgres";
-    private final String user = "postgres";
-    private final String password = "aleqyan";
 
     private static final UserDaoJDBCImpl INSTANCE;
 
     static {
+
         try {
             INSTANCE = new UserDaoJDBCImpl();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     private Connection connections() throws SQLException {
+        String url = "jdbc:postgresql://localhost:5432/postgres";
+        String user = "postgres";
+        String password = "aleqyan";
         return DriverManager.getConnection(url, user, password);
     }
 
@@ -35,31 +37,27 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void createUsersTable() {
         String sql = """
-                 create table if not exists users (
+                 create table if not exists public.users (
                  id serial primary key,
                  firstName varchar(255) not null ,
                  lastName varchar(255) not null ,
                  age int not null
                 );
-                
                 """;
-        try (
-                Statement st = connections().createStatement();
-        ) {
+        try (Statement st = connections().createStatement()) {
             st.executeUpdate(sql);
-            System.out.println("Create table for User ");
+            System.out.println("Create table for users ");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public void dropUsersTable() {
 
-        String sql = "drop table if exists users";
+        String sql = "drop table if exists public.users";
 
         try (
-                Statement st = connections().createStatement()) {
+            Statement st = connections().createStatement()) {
             st.executeUpdate(sql);
             System.out.println("Drop table ");
 
@@ -70,14 +68,18 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void saveUser(String name, String lastName, byte age) {
+        User [] users = {
+                new User(name,lastName,age)
+        };
 
         String sql = """
-                insert into users(firstName, lastName, age) values (?, ?, ?)""";
+                insert into public.users(firstName, lastName, age) values (?, ?, ?)""";
         try (PreparedStatement pst = connections().prepareStatement(sql)) {
-
-            pst.setString(1, name);
-            pst.setString(2, lastName);
-            pst.setInt(3, age);
+            for (User u :users) {
+                pst.setString(1, u.getFirstName());
+                pst.setString(2, u.getLastName());
+                pst.setInt(3, u.getAge());
+            }
             System.out.println("add new user " + name);
 
             pst.executeUpdate();
@@ -90,7 +92,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void removeUserById(long id) {
         String sql = """
-                DELETE FROM users WHERE id = ?
+                DELETE FROM public.users WHERE id = ?
                 """;
         try (PreparedStatement pst = connections().prepareStatement(sql)) {
             pst.setLong(1, id);
@@ -111,7 +113,7 @@ public class UserDaoJDBCImpl implements UserDao {
         List<User> userList = new ArrayList<>();
 
         String sql = """
-                select * from  users
+                select * from  public.users
                 order by id asc""";
         try (Statement st = connections().createStatement();
              ResultSet result = st.executeQuery(sql)) {
