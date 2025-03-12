@@ -6,7 +6,10 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Util {
     // реализуйте настройку соеденения с БД
@@ -20,7 +23,9 @@ public class Util {
             throw new RuntimeException(ex);
         }
     }
+
     private static SessionFactory factory;
+
     public static SessionFactory connectedTohibernate() {
 
         if (factory != null) {
@@ -30,16 +35,17 @@ public class Util {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure("hibernate.cfg.xml")
                 .build();
-        try {factory = new MetadataSources(registry)
-                .addAnnotatedClass(User.class)
-                .buildMetadata().
-                buildSessionFactory();
+        try {
+            factory = new MetadataSources(registry)
+                    .addAnnotatedClass(User.class)
+                    .buildMetadata().
+                    buildSessionFactory();
             return factory;
 
-    }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             StandardServiceRegistryBuilder.destroy(registry);
-            throw  new RuntimeException();
+            throw new RuntimeException();
         }
     }
 }

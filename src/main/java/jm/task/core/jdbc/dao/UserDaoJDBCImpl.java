@@ -57,7 +57,7 @@ public class UserDaoJDBCImpl implements UserDao {
         String sql = "drop table if exists public.users";
 
         try (
-            Statement st = connections().createStatement()) {
+                Statement st = connections().createStatement()) {
             st.executeUpdate(sql);
             System.out.println("Drop table ");
 
@@ -68,18 +68,16 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void saveUser(String name, String lastName, byte age) {
-        User [] users = {
-                new User(name,lastName,age)
-        };
+
 
         String sql = """
                 insert into public.users(firstName, lastName, age) values (?, ?, ?)""";
         try (PreparedStatement pst = connections().prepareStatement(sql)) {
-            for (User u :users) {
-                pst.setString(1, u.getFirstName());
-                pst.setString(2, u.getLastName());
-                pst.setInt(3, u.getAge());
-            }
+
+            pst.setString(1, name);
+            pst.setString(2, lastName);
+            pst.setInt(3, age);
+
             System.out.println("add new user " + name);
 
             pst.executeUpdate();
@@ -87,7 +85,6 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public void removeUserById(long id) {
@@ -106,7 +103,6 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public List<User> getAllUsers() {
@@ -115,6 +111,7 @@ public class UserDaoJDBCImpl implements UserDao {
         String sql = """
                 select * from  public.users
                 order by id asc""";
+
         try (Statement st = connections().createStatement();
              ResultSet result = st.executeQuery(sql)) {
 

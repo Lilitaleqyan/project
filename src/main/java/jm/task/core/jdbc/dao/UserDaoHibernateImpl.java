@@ -8,12 +8,11 @@ import org.hibernate.SessionFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+//DATA
 public class UserDaoHibernateImpl implements UserDao {
 
     public UserDaoHibernateImpl() {
-
     }
-
 
     private static UserDaoHibernateImpl INSTANCE;
 
@@ -25,20 +24,18 @@ public class UserDaoHibernateImpl implements UserDao {
         }
     }
 
-    public static SessionFactory connectedTohibernate() {
+    public static SessionFactory connectedToHibernate() {
         SessionFactory factory = Util.connectedTohibernate();
         if (factory == null) {
             throw new IllegalArgumentException();
         }
         return factory;
-
     }
-
 
     @Override
     public void createUsersTable() {
 
-        try (Session session = connectedTohibernate().openSession()) {
+        try (Session session = connectedToHibernate().openSession()) {
 
             session.beginTransaction();
             session.createSQLQuery("""
@@ -55,53 +52,42 @@ public class UserDaoHibernateImpl implements UserDao {
             throw new RuntimeException("!!!");
         }
 
-
     }
 
     @Override
     public void dropUsersTable() {
-        try (Session session = connectedTohibernate().openSession()) {
+        try (Session session = connectedToHibernate().openSession()) {
             session.beginTransaction();
             session.createSQLQuery("drop table if exists users").executeUpdate();
             session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
     @Override
     public void saveUser(String name, String lastName, byte age) {
-        try (Session session = connectedTohibernate().openSession()) {
+        try (Session session = connectedToHibernate().openSession()) {
             session.beginTransaction();
-            User[] users =
-                    {
-                            new User(name, lastName, age),
 
-                    };
-            for (User u : users) {
-
-                session.createSQLQuery("""
-                                insert into users(firstName,lastName,age) values(:firstName,:lastName,:age)
-                                """)
-                        .setParameter("firstName", u.getFirstName())
-                        .setParameter("lastName", u.getLastName())
-                        .setParameter("age", u.getAge())
-                        .executeUpdate();
-            }
+            session.createSQLQuery("""
+                            insert into users(firstName,lastName,age) values(:firstName,:lastName,:age)
+                            """)
+                    .setParameter("firstName", name)
+                    .setParameter("lastName", lastName)
+                    .setParameter("age", age)
+                    .executeUpdate();
 
             session.getTransaction().commit();
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
     public void removeUserById(long id) {
-        try (Session session = connectedTohibernate().openSession()) {
+        try (Session session = connectedToHibernate().openSession()) {
             session.beginTransaction();
             int session1 = session.createSQLQuery("""
                     delete from users where id = :id
@@ -114,16 +100,15 @@ public class UserDaoHibernateImpl implements UserDao {
                 session.getTransaction().rollback();
             }
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
     public List<User> getAllUsers() {
         List userList = new ArrayList<>();
-        try (Session session = connectedTohibernate().openSession()) {
+        try (Session session = connectedToHibernate().openSession()) {
             session.beginTransaction();
             userList = session.createSQLQuery("""
                     select * from users
@@ -141,13 +126,13 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void cleanUsersTable() {
-        try (Session session = connectedTohibernate().openSession()) {
+        try (Session session = connectedToHibernate().openSession()) {
             session.beginTransaction();
             session.createSQLQuery("""
                     delete from users
                     """).addQueryHint("cleaned table");
             session.getTransaction().commit();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

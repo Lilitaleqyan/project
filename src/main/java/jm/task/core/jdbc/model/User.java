@@ -2,8 +2,6 @@ package jm.task.core.jdbc.model;
 
 import javax.persistence.*;
 
-
-
 @Entity
 @Table(name = "users")
 
@@ -26,7 +24,7 @@ public class User {
     public User() {
     }
 
-    public  User(String firstName, String lastName, Byte age) {
+    public User(String firstName, String lastName, Byte age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
