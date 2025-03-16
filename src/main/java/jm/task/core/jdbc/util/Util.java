@@ -6,12 +6,18 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Util {
+    public Util() throws FileNotFoundException {
+    }
+
     // реализуйте настройку соеденения с БД
     public static void connectedToJDBC() {
         String url = "jdbc:postgresql://localhost:5432/postgres";
