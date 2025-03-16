@@ -4,6 +4,7 @@ import jm.task.core.jdbc.service.UserServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;
 
+import javax.swing.text.html.parser.Entity;
 import java.util.List;
 
 public class UserServiceTest {
@@ -23,6 +24,7 @@ public class UserServiceTest {
             Assert.fail("При тестировании удаления таблицы произошло исключение\n" + e);
         }
     }
+    Entity
 
     @Test
     public void createUsersTable() {
