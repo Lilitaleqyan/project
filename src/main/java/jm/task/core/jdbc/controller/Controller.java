@@ -6,7 +6,7 @@ import jm.task.core.jdbc.service.UserServiceImpl;
 
 import java.util.List;
 
-//controller
+//CONTROLLER
 public class Controller implements UserService {
     private final UserServiceImpl userService = new UserServiceImpl();
 
@@ -16,7 +16,7 @@ public class Controller implements UserService {
 
     }
 
-    @Override
+     @Override
     public void dropUsersTable() {
         userService.dropUsersTable();
 
@@ -37,6 +37,7 @@ public class Controller implements UserService {
 
         return userService.getAllUsers();
     }
+
 
     @Override
     public void cleanUsersTable() {

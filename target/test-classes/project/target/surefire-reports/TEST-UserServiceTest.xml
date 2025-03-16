@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="UserServiceTest" time="3.806" tests="6" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="22"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\User\IdeaProjects\preProject-Task-1\target\test-classes;C:\Users\User\IdeaProjects\preProject-Task-1\target\classes;C:\Users\User\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\User\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\User\.m2\repository\org\hibernate\hibernate-core\5.3.36.Final\hibernate-core-5.3.36.Final.jar;C:\Users\User\.m2\repository\org\jboss\logging\jboss-logging\3.4.2.Final\jboss-logging-3.4.2.Final.jar;C:\Users\User\.m2\repository\javax\persistence\javax.persistence-api\2.2\javax.persistence-api-2.2.jar;C:\Users\User\.m2\repository\org\javassist\javassist\3.27.0-GA\javassist-3.27.0-GA.jar;C:\Users\User\.m2\repository\net\bytebuddy\byte-buddy\1.11.12\byte-buddy-1.11.12.jar;C:\Users\User\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\User\.m2\repository\org\jboss\spec\javax\transaction\jboss-transaction-api_1.2_spec\1.1.1.Final\jboss-transaction-api_1.2_spec-1.1.1.Final.jar;C:\Users\User\.m2\repository\org\jboss\jandex\2.0.5.Final\jandex-2.0.5.Final.jar;C:\Users\User\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\User\.m2\repository\javax\activation\javax.activation-api\1.2.0\javax.activation-api-1.2.0.jar;C:\Users\User\.m2\repository\org\dom4j\dom4j\2.1.3\dom4j-2.1.3.jar;C:\Users\User\.m2\repository\org\hibernate\common\hibernate-commons-annotations\5.0.5.Final\hibernate-commons-annotations-5.0.5.Final.jar;C:\Users\User\.m2\repository\javax\xml\bind\jaxb-api\2.3.1\jaxb-api-2.3.1.jar;C:\Users\User\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.1\jaxb-runtime-2.3.1.jar;C:\Users\User\.m2\repository\org\glassfish\jaxb\txw2\2.3.1\txw2-2.3.1.jar;C:\Users\User\.m2\repository\com\sun\istack\istack-commons-runtime\3.0.7\istack-commons-runtime-3.0.7.jar;C:\Users\User\.m2\repository\org\jvnet\staxex\stax-ex\1.8\stax-ex-1.8.jar;C:\Users\User\.m2\repository\com\sun\xml\fastinfoset\FastInfoset\1.2.15\FastInfoset-1.2.15.jar;C:\Users\User\.m2\repository\org\postgresql\postgresql\42.5.1\postgresql-42.5.1.jar;C:\Users\User\.m2\repository\org\checkerframework\checker-qual\3.5.0\checker-qual-3.5.0.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Yerevan"/>
+    <property name="user.country.format" value="RU"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="22"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Users\User\.jdks\openjdk-22.0.1\bin"/>
+    <property name="sun.java.command" value="C:\Users\User\AppData\Local\Temp\surefire7700582301263155042\surefirebooter-20250312173435605_3.jar C:\Users\User\AppData\Local\Temp\surefire7700582301263155042 2025-03-12T17-34-35_334-jvmRun1 surefire-20250312173435605_1tmp surefire_0-20250312173435605_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\User\IdeaProjects\preProject-Task-1\target\test-classes;C:\Users\User\IdeaProjects\preProject-Task-1\target\classes;C:\Users\User\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\User\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\User\.m2\repository\org\hibernate\hibernate-core\5.3.36.Final\hibernate-core-5.3.36.Final.jar;C:\Users\User\.m2\repository\org\jboss\logging\jboss-logging\3.4.2.Final\jboss-logging-3.4.2.Final.jar;C:\Users\User\.m2\repository\javax\persistence\javax.persistence-api\2.2\javax.persistence-api-2.2.jar;C:\Users\User\.m2\repository\org\javassist\javassist\3.27.0-GA\javassist-3.27.0-GA.jar;C:\Users\User\.m2\repository\net\bytebuddy\byte-buddy\1.11.12\byte-buddy-1.11.12.jar;C:\Users\User\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\User\.m2\repository\org\jboss\spec\javax\transaction\jboss-transaction-api_1.2_spec\1.1.1.Final\jboss-transaction-api_1.2_spec-1.1.1.Final.jar;C:\Users\User\.m2\repository\org\jboss\jandex\2.0.5.Final\jandex-2.0.5.Final.jar;C:\Users\User\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\User\.m2\repository\javax\activation\javax.activation-api\1.2.0\javax.activation-api-1.2.0.jar;C:\Users\User\.m2\repository\org\dom4j\dom4j\2.1.3\dom4j-2.1.3.jar;C:\Users\User\.m2\repository\org\hibernate\common\hibernate-commons-annotations\5.0.5.Final\hibernate-commons-annotations-5.0.5.Final.jar;C:\Users\User\.m2\repository\javax\xml\bind\jaxb-api\2.3.1\jaxb-api-2.3.1.jar;C:\Users\User\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.1\jaxb-runtime-2.3.1.jar;C:\Users\User\.m2\repository\org\glassfish\jaxb\txw2\2.3.1\txw2-2.3.1.jar;C:\Users\User\.m2\repository\com\sun\istack\istack-commons-runtime\3.0.7\istack-commons-runtime-3.0.7.jar;C:\Users\User\.m2\repository\org\jvnet\staxex\stax-ex\1.8\stax-ex-1.8.jar;C:\Users\User\.m2\repository\com\sun\xml\fastinfoset\FastInfoset\1.2.15\FastInfoset-1.2.15.jar;C:\Users\User\.m2\repository\org\postgresql\postgresql\42.5.1\postgresql-42.5.1.jar;C:\Users\User\.m2\repository\org\checkerframework\checker-qual\3.5.0\checker-qual-3.5.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\User"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-04-16"/>
+    <property name="java.home" value="C:\Users\User\.jdks\openjdk-22.0.1"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\User\IdeaProjects\preProject-Task-1"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\User\AppData\Local\Temp\surefire7700582301263155042\surefirebooter-20250312173435605_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="22.0.1+8-16"/>
+    <property name="user.name" value="User"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\User\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\User\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2024.3.4.1"/>
+    <property name="java.version" value="22.0.1"/>
+    <property name="user.dir" value="C:\Users\User\IdeaProjects\preProject-Task-1"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.language.format" value="ru"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\User\.jdks\openjdk-22.0.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\dotnet\;c:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\User\Downloads\apache-maven-3.9.9\bin;C:\OSPanel\bin;C:\Users\User\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.1.1\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\ProgramData\Microsoft\Windows\Start Menu\Programs\MySQL\MySQL Workbench 8.0 CE.lnk;C:\Users\User\AppData\Local\GitHubDesktop\bin;C:\Users\User\AppData\Roaming\npm;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\Downloads\SpitCamSrv.exe;C:\DRIVERS\Camera_DCH_Realtek_Z_V10.0.22000.20302_36924_20250116193734;C:\Users\User\Downloads\apache-maven-3.9.9\bin;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="22.0.1+8-16"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="66.0"/>
+  </properties>
+  <testcase name="saveUser" classname="UserServiceTest" time="2.727">
+    <system-out><![CDATA[Hibernate: 
+    drop table if exists users
+Drop table 
+Hibernate: 
+    drop table if exists users
+Hibernate: 
+    create table if NOT EXISTS users(   id serial primary key,   firstName varchar(255) NOT null,   lastName varchar(255) NOT null,   age int NOT null   ); 
+Create table for users 
+save user from UserDaoHibernateImpl
+Hibernate: 
+    insert 
+    into
+        users
+        (firstName,lastName,age) 
+    values
+        (?,?,?) 
+save user from UserDaoJDBCImpl
+Hibernate: 
+    select
+        * 
+    from
+        users 
+    order by
+        id asc 
+save user from UserDaoJDBCImpl
+User{id=1, name='Ivan', lastName='Ivanov', age=5}
+save user from UserDaoHibernateImpl
+Hibernate: 
+    select
+        * 
+    from
+        users 
+    order by
+        id asc 
+]]></system-out>
+    <system-err><![CDATA[мар. 12, 2025 5:34:37 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.3.36.Final}
+мар. 12, 2025 5:34:37 PM org.hibernate.cfg.Environment <clinit>
+INFO: HHH000205: Loaded properties from resource hibernate.properties: {hibernate.format_sql=true, hibernate.hbm2ddl.auto=update, hibernate.c3p0.max_size=20, hibernate.c3p0.idle_test_period=3000, hibernate.dialect=org.hibernate.dialect.PostgreSQL95Dialect, hibernate.c3p0.testConnectionOnCheckout=true, hibernate.c3p0.min_size=5, hibernate.connection.username=postgres, hibernate.connection.url=jdbc:postgresql://localhost:5432/postgres, hibernate.show_sql=true, hibernate.c3p0.acquire_increment=5, spring.jpa.properties.hibernate.format_sql=true, hibernate.connection.driver_class=org.postgresql.Driver, hibernate.c3p0.max_statements=50, hibernate.connection.password=****, spring.jpa.show-sql=true, hibernate.c3p0.timeout=300, hibernate.c3p0.checkoutTimeout=30000, hibernate.bytecode.use_reflection_optimizer=false}
+мар. 12, 2025 5:34:37 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.0.5.Final}
+мар. 12, 2025 5:34:38 PM org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator instantiateC3p0Provider
+WARN: HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+мар. 12, 2025 5:34:38 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+мар. 12, 2025 5:34:38 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/postgres]
+мар. 12, 2025 5:34:38 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=postgres}
+мар. 12, 2025 5:34:38 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+мар. 12, 2025 5:34:38 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+мар. 12, 2025 5:34:38 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+мар. 12, 2025 5:34:38 PM org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl useContextualLobCreation
+INFO: HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+мар. 12, 2025 5:34:38 PM org.hibernate.type.BasicTypeRegistry register
+INFO: HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@5b22b970
+мар. 12, 2025 5:34:39 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7f2d31af] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+]]></system-err>
+  </testcase>
+  <testcase name="removeUserById" classname="UserServiceTest" time="0.265">
+    <system-out><![CDATA[Hibernate: 
+    drop table if exists users
+Drop table 
+Hibernate: 
+    drop table if exists users
+Hibernate: 
+    create table if NOT EXISTS users(   id serial primary key,   firstName varchar(255) NOT null,   lastName varchar(255) NOT null,   age int NOT null   ); 
+Create table for users 
+save user from UserDaoHibernateImpl
+Hibernate: 
+    insert 
+    into
+        users
+        (firstName,lastName,age) 
+    values
+        (?,?,?) 
+save user from UserDaoJDBCImpl
+Hibernate: 
+    select
+        * 
+    from
+        users 
+    order by
+        id asc 
+Hibernate: 
+    delete 
+    from
+        users 
+    where
+        id = ? 
+remove user by id = 1
+id not found 1
+]]></system-out>
+  </testcase>
+  <testcase name="getAllUsers" classname="UserServiceTest" time="0.19">
+    <system-out><![CDATA[Hibernate: 
+    drop table if exists users
+Drop table 
+Hibernate: 
+    drop table if exists users
+Hibernate: 
+    create table if NOT EXISTS users(   id serial primary key,   firstName varchar(255) NOT null,   lastName varchar(255) NOT null,   age int NOT null   ); 
+Create table for users 
+save user from UserDaoHibernateImpl
+Hibernate: 
+    insert 
+    into
+        users
+        (firstName,lastName,age) 
+    values
+        (?,?,?) 
+save user from UserDaoJDBCImpl
+Hibernate: 
+    select
+        * 
+    from
+        users 
+    order by
+        id asc 
+save user from UserDaoJDBCImpl
+User{id=1, name='Ivan', lastName='Ivanov', age=5}
+save user from UserDaoHibernateImpl
+Hibernate: 
+    select
+        * 
+    from
+        users 
+    order by
+        id asc 
+]]></system-out>
+  </testcase>
+  <testcase name="dropUsersTable" classname="UserServiceTest" time="0.144">
+    <system-out><![CDATA[Hibernate: 
+    drop table if exists users
+Drop table 
+Hibernate: 
+    drop table if exists users
+Drop table 
+]]></system-out>
+  </testcase>
+  <testcase name="createUsersTable" classname="UserServiceTest" time="0.115">
+    <system-out><![CDATA[Hibernate: 
+    drop table if exists users
+Drop table 
+Hibernate: 
+    drop table if exists users
+Hibernate: 
+    create table if NOT EXISTS users(   id serial primary key,   firstName varchar(255) NOT null,   lastName varchar(255) NOT null,   age int NOT null   ); 
+Create table for users 
+]]></system-out>
+  </testcase>
+  <testcase name="cleanUsersTable" classname="UserServiceTest" time="0.254">
+    <system-out><![CDATA[Hibernate: 
+    drop table if exists users
+Drop table 
+Hibernate: 
+    drop table if exists users
+Hibernate: 
+    create table if NOT EXISTS users(   id serial primary key,   firstName varchar(255) NOT null,   lastName varchar(255) NOT null,   age int NOT null   ); 
+Create table for users 
+save user from UserDaoHibernateImpl
+Hibernate: 
+    insert 
+    into
+        users
+        (firstName,lastName,age) 
+    values
+        (?,?,?) 
+save user from UserDaoJDBCImpl
+Hibernate: 
+    select
+        * 
+    from
+        users 
+    order by
+        id asc 
+cleaned table
+save user from UserDaoJDBCImpl
+save user from UserDaoHibernateImpl
+Hibernate: 
+    select
+        * 
+    from
+        users 
+    order by
+        id asc 
+]]></system-out>
+  </testcase>
+</testsuite>
