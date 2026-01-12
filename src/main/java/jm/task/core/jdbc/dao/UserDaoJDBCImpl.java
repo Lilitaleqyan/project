@@ -1,8 +1,12 @@
 package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
+import jm.task.core.jdbc.util.Util;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,16 +24,10 @@ public class UserDaoJDBCImpl implements UserDao {
 
     }
 
-    private Connection connections() throws SQLException {
-        String url = "jdbc:postgresql://localhost:5432/postgres";
-        String user = "postgres";
-        String password = "aleqyan";
-        return DriverManager.getConnection(url, user, password);
-    }
 
 
-    private UserDaoJDBCImpl() throws SQLException {
-    }
+
+    public UserDaoJDBCImpl() throws SQLException {}
 
     public static UserDaoJDBCImpl getInstance() {
         return INSTANCE;
@@ -38,13 +36,13 @@ public class UserDaoJDBCImpl implements UserDao {
     public void createUsersTable() {
         String sql = """
                  create table if not exists public.users (
-                 id serial primary key,
+                 id serial primary key
                  firstName varchar(255) not null ,
                  lastName varchar(255) not null ,
                  age int not null
                 );
                 """;
-        try (Statement st = connections().createStatement()) {
+        try (Statement st = Util.connectedToJDBC().createStatement()) {
             st.executeUpdate(sql);
             System.out.println("Create table for users ");
         } catch (SQLException e) {
@@ -57,7 +55,7 @@ public class UserDaoJDBCImpl implements UserDao {
         String sql = "drop table if exists public.users";
 
         try (
-                Statement st = connections().createStatement()) {
+                Statement st = Util.connectedToJDBC().createStatement()) {
             st.executeUpdate(sql);
             System.out.println("Drop table ");
 
@@ -72,7 +70,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
         String sql = """
                 insert into public.users(firstName, lastName, age) values (?, ?, ?)""";
-        try (PreparedStatement pst = connections().prepareStatement(sql)) {
+        try (PreparedStatement pst = Util.connectedToJDBC().prepareStatement(sql)) {
 
             pst.setString(1, name);
             pst.setString(2, lastName);
@@ -91,7 +89,7 @@ public class UserDaoJDBCImpl implements UserDao {
         String sql = """
                 DELETE FROM public.users WHERE id = ?
                 """;
-        try (PreparedStatement pst = connections().prepareStatement(sql)) {
+        try (PreparedStatement pst = Util.connectedToJDBC().prepareStatement(sql)) {
             pst.setLong(1, id);
             int result = pst.executeUpdate();
             if (result > 0) {
@@ -112,7 +110,7 @@ public class UserDaoJDBCImpl implements UserDao {
                 select * from  public.users
                 order by id asc""";
 
-        try (Statement st = connections().createStatement();
+        try (Statement st = Util.connectedToJDBC().createStatement();
              ResultSet result = st.executeQuery(sql)) {
 
             while (result.next()) {
@@ -134,7 +132,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void cleanUsersTable() {
         String sql = "delete from \"users\"";
-        try (Statement st = connections().createStatement()) {
+        try (Statement st = Util.connectedToJDBC().createStatement()) {
             st.executeUpdate(sql);
             System.out.println("cleaned table");
 

@@ -19,12 +19,13 @@ public class Util {
     }
 
     // реализуйте настройку соеденения с БД
-    public static void connectedToJDBC() {
+    public static Connection connectedToJDBC() {
         String url = "jdbc:postgresql://localhost:5432/postgres";
         String user = "postgres";
         String password = "aleqyan";
         try (Connection driver = DriverManager.getConnection(url, user, password)) {
             Statement st = driver.createStatement();
+
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
@@ -34,7 +35,9 @@ public class Util {
 
     public static SessionFactory connectedTohibernate() {
 
-        if (factory != null) {
+            if (factory == null) {
+                throw new IllegalArgumentException();
+            }
             return factory;
         }
 
